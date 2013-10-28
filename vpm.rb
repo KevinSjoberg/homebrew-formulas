@@ -1,12 +1,12 @@
 require 'formula'
 
 class Vpm < Formula
+  url      'https://github.com/KevinSjoberg/vpm/archive/v0.0.1.tar.gz'
+  sha1     '4665519f1b1af46d303681407656dc304386a337'
   homepage 'https://github.com/KevinSjoberg/vpm'
-  url 'https://github.com/KevinSjoberg/vpm/archive/v0.0.1.tar.gz'
-  sha1 '921907e0463aae9b43350f97c79ef8de9305094b'
 
   def install
-    inreplace 'libexec/vpm', '%VPM_LIBEXECDIR%', libexec
+    inreplace 'libexec/vpm', 'VPM_LIBEXECDIR=${VPM_LIBEXECDIR:-""}', "VPM_LIBEXECDIR=${VPM_LIBEXECDIR:-#{libexec}}"
     prefix.install Dir['*']
   end
 end
