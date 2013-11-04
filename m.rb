@@ -12,7 +12,7 @@ class M < Formula
   def caveats; <<-EOS.undent
     Make sure to add the following in your ~/.bashrc.
 
-      source #{share}/m/m
+      source #{HOMEBREW_PREFIX}/share/m/m
     EOS
   end
 end
